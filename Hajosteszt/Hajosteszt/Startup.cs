@@ -24,10 +24,14 @@ namespace Hajosteszt
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+           
             app.UseHttpsRedirection();
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("cv.html");
 
-            app.UseDefaultFiles();
+
+            app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
             app.UseRouting();
