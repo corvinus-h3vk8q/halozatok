@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Hajosteszt
+namespace HajosTeszt
 {
     public class Startup
     {
@@ -24,26 +24,28 @@ namespace Hajosteszt
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                app.UseHttpsRedirection();
-                DefaultFilesOptions options = new DefaultFilesOptions();
-                options.DefaultFileNames.Clear();
-                options.DefaultFileNames.Add("cv.html");
-
-
-                app.UseDefaultFiles(options);
-                app.UseStaticFiles();
-
-                app.UseRouting();
-
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapGet("/", async context =>
-                    {
-                        await context.Response.WriteAsync("Hello World!");
-                    });
-                });
             }
+
+            app.UseHttpsRedirection();
+
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("cv.html")
+
+
+            app.UseDefaultFiles();
+
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //   endpoints.MapGet("/", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World!&quot;
+            //    });
+            // });
         }
     }
 }
