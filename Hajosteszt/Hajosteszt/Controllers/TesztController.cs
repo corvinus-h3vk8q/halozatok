@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmptyBoat.Controllers
+namespace HajosTeszt.Controllers
 {
-    //Commentbe vele!
     //[Route("api/[controller]")]
     [ApiController]
     public class TesztController : ControllerBase
@@ -20,7 +19,7 @@ namespace EmptyBoat.Controllers
 
             return new ContentResult
             {
-                ContentType = System.Net.Mime.MediaTypeNames.Text.Plain, //"text/plain"
+                ContentType = System.Net.Mime.MediaTypeNames.Text.Plain,
                 Content = pontosIdő
             };
         }
@@ -34,6 +33,7 @@ namespace EmptyBoat.Controllers
                 ContentType = System.Net.Mime.MediaTypeNames.Text.Plain, //"text/plain"
                 Content = szoveg.ToUpper()
             };
+            //return BadRequest("Nem jó a bemenő adat");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿var kérdések;
+﻿﻿var kérdések;
 var kérdésSorszám = 0;
 
 function letöltés() {

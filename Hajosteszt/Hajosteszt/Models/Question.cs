@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace HajosTeszt.Models
+namespace Hajosteszt.Models
 {
     public partial class Question
     {
