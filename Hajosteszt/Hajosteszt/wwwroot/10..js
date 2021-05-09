@@ -1,4 +1,4 @@
-﻿var hotList = []; //Az éppen gyakoroltatott kérdések listája
+﻿ var hotList = []; //Az éppen gyakoroltatott kérdések listája
 var questionsInHotList = 3; //Ez majd 7 lesz, teszteléshez jobb a 3
 var displayedQuestion; //A hotList-ből éppen ez a kérdés van kint
 var numberOfQuestions; //Kérdések száma a teljes adatbázisban

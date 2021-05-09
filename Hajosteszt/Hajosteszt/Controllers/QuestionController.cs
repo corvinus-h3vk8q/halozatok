@@ -10,10 +10,18 @@ namespace Hajosteszt.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
-    public class BoatController : ControllerBase
+    public class QuestionController : ControllerBase
     {
         [HttpGet]
-        [Route("questions/{sorszám}")]
+        [Route("questions/count")]
+        public int M1 ()
+        {
+            HajostesztContext context = new HajostesztContext();
+            int kérdésekSzáma = context.Questions.Count();
+            return kérdésekSzáma;
+        }
+        [HttpGet]
+        [Route("questions/sorszám")]
         public ActionResult M2(int sorszám)
         {
             HajostesztContext context = new HajostesztContext();
@@ -21,8 +29,7 @@ namespace Hajosteszt.Controllers
                           where x.QuestionId == sorszám
                           select x).FirstOrDefault();
 
-            if (kérdés == null) return BadRequest("Nincs ilyen sorszámú kérdés");
-
+            if (kérdés == null) return BadRequest("nincs ilyen kérdés");
             return new JsonResult(kérdés);
         }
     }

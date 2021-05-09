@@ -3,82 +3,40 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        div {
-            margin: 10px;
-            border: 2px solid rgba(98,185,160,1);
-        }
-
-        #külső {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #kérdés_szöveg {
-        }
-
-        #középső {
-            display: flex;
-            flex-direction: row;
-            flex-grow: 1
-        }
-
-        #válaszok {
-            flex-grow: 1;
-            flex-shrink: 1;
-        }
-
-        #vezérlő {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        #kép {
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .gomb {
-            padding: 20px;
-            width: 80px;
-        }
-
-        .kattintható:hover {
-            background-color: fuchsia;
-            color: white;
-        }
-
-        .kerdes {
-        }
-    </style>
-    <script src="/hetedik.js"></script>
+    <title>Vizsga gyakorlás</title>
+   <link rel="stylesheet" href="Hajo.css" />
+    <script src="10..js"></script>
 </head>
 <body>
     <div id="külső">
         <div id="kérdés_szöveg">
-            Kérdés szövege
+
         </div>
 
         <div id="középső">
+
             <div id="válaszok">
-                <div id="válasz1" class="kerdes kattintható">Válasz 1</div>
-                <div id="válasz2" class="kerdes kattintható jó">Válasz 2</div>
-                <div id="válasz3" class="kerdes kattintható rossz">Válasz 3</div>
+                <div id="válasz1" onclick="választás(1)" class="kérdés kattintható">
+                    Válasz 1
+                </div>
+
+                <div id="válasz2" onclick="választás(2)" class="kérdés kattintható">
+                    Válasz 2
+                </div>
+
+                <div id="válasz3" onclick="választás(3)" class="kérdés kattintható">
+                    Válasz 3
+                </div>
             </div>
-            <div id="kép">
-                <img id="kép1" src="https://szoft1.comeback.hu/hajo/teszt-0050.jpg" />
+
+            <div id="kép_keret">
+                <img id="kép" src="https://szoft1.comeback.hu/hajo/teszt-0050.jpg" />
             </div>
         </div>
+
         <div id="vezérlő">
-            <div class="gomb kattintható" id="vissza">Vissza</div>
-            <div class="gomb kattintható" id="előre">Előre</div>
+            <div onclick="vissza()" class="gomb kattintható">Vissza</div>
+            <div onclick="előre()" class="gomb kattintható">Előre</div>
         </div>
     </div>
 </body>
