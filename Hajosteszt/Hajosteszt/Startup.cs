@@ -27,10 +27,13 @@ namespace HajosTeszt
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("hajo.html");
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles(); //A sorrend fontos!
+            app.UseHttpsRedirection();
+            app.UseDefaultFiles(options);
+            app.UseStaticFiles();
 
             app.UseRouting();
 
