@@ -84,7 +84,7 @@ function kérdésMegjelenítés() {
     document.getElementById("válasz2").innerText = kérdés.answer2;
     document.getElementById("válasz3").innerText = kérdés.answer3;
     if (kérdés.image) {
-        document.getElementById("kép").src = kérdés.image;
+        document.getElementById("kép").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
         document.getElementById("kép").style.display = "block";
     }
     else {
