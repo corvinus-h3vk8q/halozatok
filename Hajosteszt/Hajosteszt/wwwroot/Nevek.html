@@ -6,18 +6,18 @@
 </head>
 <body>
     <form>
-        <div id="jokeList">   </div>
+        <div id="nevekList">   </div>
         <div>
-            <input id="jokeText" type="text" placeholder="Csak PC vicc" />
+            <input id="Column1" type="text" placeholder="Nevek itt" />
         </div>
 
-        <button id="addButton"> Új vicc felvétele</button>
-        <div id="viccek"></div>
+        <button id="addButton"> Új név felvétele</button>
+        <div id="nevek"></div>
 
     </form>
     <script>
         document.addEventListener("DOMContentLoaded", x => {
-            fetch("api/jokes").then(x => x.json()).then(x => { showJokes(x) })
+            fetch("api/Nevek").then(x => x.json()).then(x => {showNevek(x)})
         })
 
 
@@ -29,10 +29,10 @@
         document.getElementById("addButton").addEventListener("click", () => {
 
             let data = {
-                jokeText: document.getElementById("jokeText").value
+                column1: document.getElementById("Column1").value
             }
 
-            fetch("api/jokes",
+            fetch("api/Nevek",
                 {
                     method: 'POST',
                     headers: { 'Content-type': 'application/json' },
@@ -46,7 +46,7 @@
                         alert("Siker");
                     }
                     else {
-                        alert("Ay caramba");
+                        alert("Sikertelen");
                     }
                 }
 
@@ -64,13 +64,13 @@
 
         });
 
-        function showJokes(j) {
+        function showNevek(j) {
             console.log(j)
             for (var i = 0; i < j.length; i++) {
-                console.log(j[i].jokeText)
-                let vicc = document.createElement("div");
-                vicc.innerHTML = j[i].jokeText;
-                document.getElementById("viccek").appendChild(vicc);
+                console.log(j[i].column1)
+                let nev = document.createElement("div");
+                nev.innerHTML = j[i].column1;
+                document.getElementById("nevek").appendChild(nev);
             }
 
 
