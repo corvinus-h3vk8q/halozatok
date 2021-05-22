@@ -13,6 +13,10 @@
         </div>
 
         <button id="addButton"> Új név felvétele</button>
+        <div>
+            <input id="delete" type="number" placeholder="Törlendő név id-ja" />
+        </div>
+        <button id="Nevtorles"> Név törlése</button>
         <div id="nevek"></div>
 
     </form>
@@ -41,6 +45,44 @@
 
 
                     body: JSON.stringify(data)
+
+                }).then(x => {
+                    if (x.ok) {
+                        alert("Siker");
+                    }
+                    else {
+                        alert("Sikertelen");
+                    }
+                }
+
+
+
+
+                );
+
+
+
+
+
+
+
+
+        });
+
+        document.getElementById("Nevtorles").addEventListener("click", () => {
+
+            let data = document.getElementById("delete").value;
+
+
+
+            fetch("api/Nevek/" + data,
+                {
+                    method: 'DELETE',
+
+
+
+
+
 
                 }).then(x => {
                     if (x.ok) {
