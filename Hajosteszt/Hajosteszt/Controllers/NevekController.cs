@@ -1,5 +1,4 @@
-﻿using Hajosteszt.JokeModels;
-using Hajosteszt.NevekModels;
+﻿using Hajosteszt.NevekModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -58,6 +57,14 @@ namespace HajosTeszt.Controllers
             context.Remove(törlendőnév);
             context.SaveChanges();
 
+        }
+        [HttpGet]
+        [Route("count")]
+        public int sorokSzama()
+        {
+            corvinusfovjmpContext context = new corvinusfovjmpContext();
+            int NevekCount = context.Neveks.Count();
+            return NevekCount;
         }
     }
 }
