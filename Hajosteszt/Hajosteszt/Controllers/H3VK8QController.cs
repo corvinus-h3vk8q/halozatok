@@ -1,4 +1,4 @@
-﻿using Hajosteszt.NevekModels;
+﻿using Hajosteszt.H3VK8QModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,50 +8,50 @@ using System.Threading.Tasks;
 
 namespace HajosTeszt.Controllers
 {
-    [Route("api/Nevek")]
+    [Route("api/Names")]
     [ApiController]
-    public class NevekController : Controller
+    public class H3VK8QController : Controller
     {
-        // GET: api/Nevek
+        // GET: api/Names
         [HttpGet]
-        public IEnumerable<Nevek> Get()
+        public IEnumerable<H3vk8q> Get()
         {
-            corvinusfovjmpContext context = new corvinusfovjmpContext();
-            return context.Neveks.ToList();
+            SzamhaloContext context = new SzamhaloContext();
+            return context.H3vk8qs.ToList();
         }
 
-        // GET api/Nevek/5
+        // GET api/Names/5
         [HttpGet("{id}")]
-        public Nevek Get(int id)
+        public H3vk8q Get(int id)
         {
-            corvinusfovjmpContext context = new corvinusfovjmpContext();
-            var keresettNév = (from x in context.Neveks
+            SzamhaloContext context = new SzamhaloContext();
+            var keresettNév = (from x in context.H3vk8qs
                                where x.Id == id
                                select x).FirstOrDefault();
             return keresettNév;
         }
 
-        // POST api/Nevek
+        // POST api/Names
         [HttpPost]
-        public void Post([FromBody] Nevek újnév)
+        public void Post([FromBody] H3vk8q újnév)
         {
-            corvinusfovjmpContext context = new corvinusfovjmpContext();
-            context.Neveks.Add(újnév);
+            SzamhaloContext context = new SzamhaloContext();
+            context.H3vk8qs.Add(újnév);
             context.SaveChanges();
         }
 
-        // PUT api/<NevekController>/5
+        // PUT api/H3VK8QController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/Nevek/5
+        // DELETE api/Names/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            corvinusfovjmpContext context = new corvinusfovjmpContext();
-            var törlendőnév = (from x in context.Neveks
+            SzamhaloContext context = new SzamhaloContext();
+            var törlendőnév = (from x in context.H3vk8qs
                                where x.Id == id
                                select x).FirstOrDefault();
             context.Remove(törlendőnév);
@@ -62,8 +62,8 @@ namespace HajosTeszt.Controllers
         [Route("count")]
         public int sorokSzama()
         {
-            corvinusfovjmpContext context = new corvinusfovjmpContext();
-            int NevekCount = context.Neveks.Count();
+            SzamhaloContext context = new SzamhaloContext();
+            int NevekCount = context.H3vk8qs.Count();
             return NevekCount;
         }
     }

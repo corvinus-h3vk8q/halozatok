@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Nevek</title>
+    <title>Names</title>
     <link rel="stylesheet" href="Nevek.css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
 
         <button id="addButton"> Új név felvétele</button>
         <div>
-            <input id="delete" type="number" placeholder="Törlendő név id-ja" />
+            <input id="delete" type="text" placeholder="Törlendő név" />
         </div>
         <button id="Nevtorles"> Név törlése</button>
         <div id="nevek"></div>
@@ -22,11 +22,24 @@
     </form>
     <script>
         document.addEventListener("DOMContentLoaded", x => {
-            fetch("api/Nevek").then(x => x.json()).then(x => {showNevek(x)})
+            fetch("api/Names").then(x => x.json()).then(x => {showNevek(x)})
         })
 
+        document.getElementById("delete").addEventListener("change", x => {
+            fetch("api/Names").then(x => x.json()).then(x => { nameCheck(x) })
+        })
 
+        function nameCheck(x) {
+            console.log(x)
+            for (var i = 0; i < x.length; i++) {
+                if (x[i].names == document.getElementById("delete").value) {
+                    checkid = x[i].id;
+                    //alert(x[i].id);
+                }
 
+            }
+        }
+        var checkid;
 
 
 
@@ -34,10 +47,10 @@
         document.getElementById("addButton").addEventListener("click", () => {
 
             let data = {
-                column1: document.getElementById("Column1").value
+                names: document.getElementById("Column1").value
             }
 
-            fetch("api/Nevek",
+            fetch("api/Names",
                 {
                     method: 'POST',
                     headers: { 'Content-type': 'application/json' },
@@ -71,11 +84,11 @@
 
         document.getElementById("Nevtorles").addEventListener("click", () => {
 
-            let data = document.getElementById("delete").value;
+            //let data = document.getElementById("delete").value;
 
 
 
-            fetch("api/Nevek/" + data,
+            fetch("api/Names/" + checkid,
                 {
                     method: 'DELETE',
 
@@ -110,9 +123,9 @@
         function showNevek(j) {
             console.log(j)
             for (var i = 0; i < j.length; i++) {
-                console.log(j[i].column1)
+                console.log(j[i].names)
                 let nev = document.createElement("div");
-                nev.innerHTML = j[i].column1;
+                nev.innerHTML = j[i].names;
                 document.getElementById("nevek").appendChild(nev);
             }
 

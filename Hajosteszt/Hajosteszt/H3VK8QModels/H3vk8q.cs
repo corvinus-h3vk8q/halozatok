@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Hajosteszt.NevekModels
+namespace Hajosteszt.H3VK8QModels
 {
-    public partial class Nevek
+    public partial class H3vk8q
     {
-        public string Column1 { get; set; }
+        public string Names { get; set; }
         public int Id { get; set; }
     }
 }
