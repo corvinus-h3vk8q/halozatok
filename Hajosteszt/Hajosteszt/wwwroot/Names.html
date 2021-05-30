@@ -41,7 +41,10 @@
         }
         var checkid;
 
+        function frissit() {
+            window.location.reload();
 
+        }
 
 
         document.getElementById("addButton").addEventListener("click", () => {
@@ -73,7 +76,7 @@
 
                 );
 
-
+            window.setInterval('frissit()', 5000);
 
 
 
@@ -109,8 +112,9 @@
 
 
 
-                );
+            );
 
+            window.setInterval('frissit()', 5000);
 
 
 
@@ -131,6 +135,7 @@
 
 
         }
+   
     </script>
 
 </body>
